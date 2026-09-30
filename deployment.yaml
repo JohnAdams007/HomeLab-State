@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homelab
+  labels:
+    app: homelab
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: homelab
+  template:
+    metadata:
+      labels:
+        app: homelab
+    spec:
+      containers:
+      - name: homelab
+        image: ghcr.io/johnadams007/homelab:e823db7
+        ports:
+        - containerPort: 8080
